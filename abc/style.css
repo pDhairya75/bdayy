@@ -1,0 +1,228 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #fff5f7;
+    --primary-pink: #ff4d6d;
+    --primary-pink-hover: #ff758f;
+    --secondary-gray: #f8f9fa;
+    --text-dark: #2d3436;
+    --text-muted: #636e72;
+    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --border-radius: 32px;
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-dark);
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    color: var(--text-dark);
+}
+
+/* Background Hearts */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    color: rgba(255, 77, 109, 0.2);
+    font-size: 20px;
+    user-select: none;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    z-index: 10;
+    perspective: 1000px;
+}
+
+/* Card Styling */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-smooth);
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    display: none;
+    position: relative;
+}
+
+.card.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.card.hidden {
+    display: none;
+}
+
+/* Question Screen */
+.emoji-wrapper {
+    font-size: 64px;
+    margin-bottom: 24px;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.question-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, #ff4d6d 0%, #c9184a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.btn-primary {
+    width: 100%;
+    max-width: 200px;
+    background-color: var(--primary-pink);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-size: 18px;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 77, 109, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3); }
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.08);
+    background-color: var(--primary-pink-hover);
+    box-shadow: 0 12px 24px rgba(255, 77, 109, 0.4);
+    animation: none;
+}
+
+.btn-primary:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 8px 16px;
+    opacity: 0.7;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+}
+
+.btn-secondary:hover {
+    opacity: 1;
+    color: var(--text-dark);
+}
+
+/* Success Screen */
+.heart-sticker {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(255, 77, 109, 0.2));
+    animation: heartBeat 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1) rotate(0deg); }
+    15% { transform: scale(1.15) rotate(5deg); }
+    30% { transform: scale(1.05) rotate(-5deg); }
+    45% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.success-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 24px 0 12px;
+    color: var(--primary-pink);
+}
+
+.sub-text {
+    color: var(--text-muted);
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    .card {
+        padding: 30px 20px;
+    }
+    .question-text {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question | For Sriyaaa</title>
+    <meta name="description" content="A romantic proposal for Sriyaaa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="heart-container" id="heart-container"></div>
+
+    <main class="container">
+        <!-- Screen 1: The Question -->
+        <section id="screen-question" class="card active">
+            <div class="card-content">
+                <div class="emoji-wrapper">
+                    <span class="main-emoji">💝</span>
+                </div>
+                <h1 class="question-text">Sriyaaa, will you be my girlfriend?</h1>
+                <div class="button-group">
+                    <button id="btn-yes" class="btn btn-primary">Yes</button>
+                    <button id="btn-no" class="btn btn-secondary">No</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 2: The Celebration -->
+        <section id="screen-success" class="card hidden">
+            <div class="card-content">
+                <div class="illustration-wrapper">
+                    <div class="sticker-container">
+                        <svg class="heart-sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Pink Heart -->
+                            <path d="M60,40 C40,40 30,60 30,80 C30,120 70,150 100,170 C130,150 170,120 170,80 C170,60 160,40 140,40 C125,40 110,50 100,65 C90,50 75,40 60,40 Z" fill="#ff758f" />
+                            <!-- Small Red Heart Overlap -->
+                            <path d="M100,80 C90,80 85,90 85,100 C85,120 100,135 115,145 C130,135 145,120 145,100 C145,90 140,80 130,80 C122.5,80 115,85 110,92.5 C105,85 97.5,80 100,80 Z" fill="#ff4d6d" transform="translate(-10, -10)" />
+                            <!-- Sparkles -->
+                            <circle cx="150" cy="50" r="4" fill="white" opacity="0.8" />
+                            <circle cx="40" cy="140" r="3" fill="white" opacity="0.6" />
+                            <circle cx="170" cy="150" r="5" fill="white" opacity="0.7" />
+                        </svg>
+                        <div class="sparkles"></div>
+                    </div>
+                </div>
+                <h1 class="success-text">Yayy! You said YES! 💘</h1>
+                <p class="sub-text">I knew you'd say yes 😜 ✨</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
